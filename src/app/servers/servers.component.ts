@@ -10,15 +10,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ServersComponent implements OnInit {
   private servers: {id: number, name: string, status: string}[] = [];
 
-  constructor(private serversService: ServersService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private serversService: ServersService, 
+    private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.servers = this.serversService.getServers();
   }
 
-  onReload(){
+  onLoadServer(){
     // this.router.navigate(['servers'], {relativeTo: this.route});
-    this.router.navigate(['servers']);
+    this.router.navigate(['/servers', 1, 'edit'],
+    {queryParams: {'allowEdit': '1'}, fragment: 'Loading'});
   }
 
 }
