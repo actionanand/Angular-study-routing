@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../guards/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,25 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router){}
-  ngOnInit(){}
+  login:boolean;
+
+  constructor(private router: Router, private authservice: AuthService){}
+  ngOnInit(){
+    this.login = this.authservice.loggedIn;
+  }
 
   onLoadServers(){
     this.router.navigate(['/servers']);
+  }
+
+  onLogin(){
+    this.authservice.login();
+    this.login = this.authservice.loggedIn;
+  }
+
+  onLogOut(){
+    this.authservice.logout();
+    this.login = this.authservice.loggedIn;
   }
 
 }
