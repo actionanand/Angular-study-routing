@@ -14,6 +14,7 @@ import { ServersService } from './servers/servers.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthService } from './guards/auth.service';
 import { GuardComponent } from './guards/guard-component.service';
+import { CanDeactivateGuard } from './guards/can-deact-guard.service';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { GuardComponent } from './guards/guard-component.service';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ServersService, AuthService, GuardComponent],
+  providers: [ServersService, AuthService, GuardComponent, CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
