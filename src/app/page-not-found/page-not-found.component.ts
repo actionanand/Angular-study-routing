@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Data } from '@angular/router';
 
 @Component({
   selector: 'app-page-not-found',
@@ -8,9 +8,18 @@ import { Router } from '@angular/router';
 })
 export class PageNotFoundComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  errorMessage: string;
+
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    // this.errorMessage=this.route.snapshot.data['message'];
+
+    this.route.data.subscribe(
+      (data: Data)=>{
+        this.errorMessage = data['message'];
+      }
+    );
   }
 
   onLoadHome(){

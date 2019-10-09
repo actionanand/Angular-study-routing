@@ -20,7 +20,7 @@ const appRoot: Routes = [
       {path: ':id', component: ServerComponent},
       {path: ':id/edit',canDeactivate:[CanDeactivateGuard], component: EditServerComponent}
     ]},
-    {path: 'no-water-here', component: PageNotFoundComponent},
+    {path: 'no-water-here', component: PageNotFoundComponent, data: {message: 'Page not found!'}},
     {path: '**', redirectTo: '/no-water-here'}
   ];
 
