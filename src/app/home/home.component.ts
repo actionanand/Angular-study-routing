@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../guards/auth.service';
 import { Subscription, Observable } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   login:boolean;
   homeSubscription: Subscription;
 
-  constructor(private router: Router, private authservice: AuthService){}
+  constructor(private router: Router, private authservice: AuthService, private route: ActivatedRoute){}
   ngOnInit(){
     this.login = this.authservice.loggedIn;
 
@@ -69,6 +69,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.login = this.authservice.loggedIn;
   }
 
+  onTdClick(){
+    this.router.navigate(['/Template-Driven-Form'], {relativeTo: this.route});
+  }
 
+  onReactiveClick(){
+    this.router.navigate(['/Reactive-Form'], {relativeTo: this.route});
+  }
 
 }

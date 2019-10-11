@@ -11,6 +11,8 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { GuardComponent } from "./guards/guard-component.service";
 import { CanDeactivateGuard } from "./guards/can-deact-guard.service";
 import { ResolveServer } from "./guards/resolve-server.service";
+import { TDFormComponent } from "./forms/td-form/td-form.component";
+import { ReactiveFormComponent } from "./forms/reactive-form/reactive-form.component";
 
 const appRoot: Routes = [
     {path: '', component: HomeComponent},
@@ -21,6 +23,8 @@ const appRoot: Routes = [
       {path: ':id',resolve:{serverData:ResolveServer}, component: ServerComponent},
       {path: ':id/edit',canDeactivate:[CanDeactivateGuard], component: EditServerComponent}
     ]},
+    {path: 'Template-Driven-Form', component: TDFormComponent},
+    {path: 'Reactive-Form', component:ReactiveFormComponent},
     {path: 'no-water-here', component: PageNotFoundComponent, data: {message: 'Page not found!'}},
     {path: '**', redirectTo: '/no-water-here'}
   ];
