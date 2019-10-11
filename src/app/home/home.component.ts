@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../guards/auth.service';
-import { interval, Subscription, Observable } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -27,12 +27,26 @@ export class HomeComponent implements OnInit, OnDestroy {
       let count = 0;
       setInterval(()=> {
         observer.next(count);
+
+        if(count === 5){
+          observer.complete();
+        }
+        if(count > 6)
+        {
+          observer.error(new Error('count is greater than 3'));
+        }
         count++;
       },1000);
     });
 
     this.homeSubscription = customObservable.subscribe(data => {
       console.log(data);
+    },error => {
+      console.log(error);
+      alert(error.message);
+    }, ()=>{
+      console.log('Observer is completed');
+      alert('Observer is completed');
     });
 
   }
