@@ -16,6 +16,8 @@ import { AuthService } from './guards/auth.service';
 import { GuardComponent } from './guards/guard-component.service';
 import { CanDeactivateGuard } from './guards/can-deact-guard.service';
 import { ResolveServer } from './guards/resolve-server.service';
+import { TDFormComponent } from './forms/td-form/td-form.component';
+import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { ResolveServer } from './guards/resolve-server.service';
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    TDFormComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
