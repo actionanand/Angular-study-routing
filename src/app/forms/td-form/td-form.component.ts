@@ -12,4 +12,8 @@ export class TDFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  suggestUserName() {
+    const suggestedName = 'Superuser';
+  }
+
 }
