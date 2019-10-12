@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-td-form',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./td-form.component.css']
 })
 export class TDFormComponent implements OnInit {
+
+  @ViewChild('f',{static: true}) signUpForm: NgForm;
 
   constructor() { }
 
@@ -16,4 +19,11 @@ export class TDFormComponent implements OnInit {
     const suggestedName = 'Superuser';
   }
 
+  // onSubmit(form: NgForm){
+  //   console.log(form);
+  // }
+
+  onSubmit(){
+    console.log(this.signUpForm);
+  }
 }
