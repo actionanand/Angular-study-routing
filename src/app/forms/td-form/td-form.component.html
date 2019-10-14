@@ -28,7 +28,7 @@
             <div class="form-group">
             <label for="secret1">Secret Questions</label>
             <select id="secret1" class="form-control"
-            ngModel name="secret1">
+            [ngModel]="defaultQn" name="secret1">
                 <option value="pet">Your first Pet?</option>
                 <option value="teacher">Your first teacher?</option>
                 <option value="person">Your favourite person?</option>
