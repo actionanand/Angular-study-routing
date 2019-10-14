@@ -36,6 +36,11 @@
                 <option value="book">Your favourite book?</option>
             </select>
             </div>
+            <div class="form-group">
+                <textarea name="qtnAnswer" rows="3" class="form-control" 
+                [(ngModel)]="answer" required></textarea>
+            </div>
+            <p>Your answer is: {{answer}}</p>
             <button class="btn btn-outline-primary" type="submit" [disabled]="!f.valid">Submit</button>
         </form>
         </div>
