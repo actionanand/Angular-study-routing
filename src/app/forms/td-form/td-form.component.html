@@ -9,14 +9,14 @@
                 <label for="username1">Username</label>
                 <input type="text" id="username1" 
                 class="form-control" placeholder="Enter your username" autofocus="on"
-                ngModel name="username1">
+                ngModel name="username1" required>
             </div>
             <button class="btn btn-outline-secondary" type="button">Suggest an Username</button>
             <div class="form-group">
                 <label for="email1">Mail</label>
                 <input type="email" id="email1" 
                 class="form-control" placeholder="Enter your email" autocomplete="on"
-                ngModel name="email1">
+                ngModel name="email1" required email>
             </div>
             </div>
             <!-- <div class="form-group form-check">
@@ -35,7 +35,7 @@
                 <option value="book">Your favourite book?</option>
             </select>
             </div>
-            <button class="btn btn-outline-primary" type="submit">Submit</button>
+            <button class="btn btn-outline-primary" type="submit" [disabled]="!f.valid">Submit</button>
         </form>
         </div>
     </div>
