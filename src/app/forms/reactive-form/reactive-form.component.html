@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
             <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"> 
-                <div id="user-data">
+                <div id="user-data" formGroupName="userData1">
                 <div class="form-group">
                     <label for="username1">Username</label>
                     <input type="text" id="username1" 
@@ -17,9 +17,9 @@
                     class="form-control" placeholder="Enter your email" autocomplete="on">
 
                     <span class="help-block text-danger" 
-                    *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">
+                    *ngIf="!signupForm.get('userData1.email').valid && signupForm.get('userData1.email').touched">
                     Please enter a valid email!</span>&nbsp;
-                    
+
                     <!-- <span class="help-block text-danger" *ngIf="!userData1.valid && userData1.touched">User data invalid!</span> -->
                 </div>
                 </div>
