@@ -10,6 +10,7 @@ export class ReactiveFormComponent implements OnInit {
 
   genders = ['male','female','not interested'];
   signupForm: FormGroup;
+  spaceNeeded:boolean = false;
 
   constructor() { }
 
@@ -29,6 +30,7 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   onAddHobbies(){
+    this.spaceNeeded = true;
     const control = new FormControl(null, Validators.required);
     (<FormArray>this.signupForm.get('hobbies')).push(control);
   }

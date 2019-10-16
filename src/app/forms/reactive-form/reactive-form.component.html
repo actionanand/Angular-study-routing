@@ -18,11 +18,7 @@
 
                         <span class="help-block text-danger" 
                         *ngIf="!signupForm.get('userData1.email').valid && signupForm.get('userData1.email').touched">
-                        Please enter a valid email!</span>&nbsp;
-
-                        <span class="help-block text-danger" 
-                        *ngIf="!signupForm.valid && signupForm.touched">
-                        User data invalid!</span>
+                        Please enter a valid email!</span>
 
                     </div>
                 </div>
@@ -40,6 +36,8 @@
                 <div formArrayName="hobbies">
                     <h3>Your hobbies</h3>
                     <button class="btn btn-outline-success" type="button" (click)="onAddHobbies()">Add Hobby</button>
+                    
+                    <hr *ngIf="spaceNeeded">
                     <div class="form-group" 
                     *ngFor="let hobbycontrol of signupForm.get('hobbies').controls; let i=index">
                         <input
@@ -47,6 +45,9 @@
                         [formControlName]="i">
                     </div>
                 </div>
+                <span class="help-block text-danger" 
+                        *ngIf="!signupForm.valid && signupForm.touched">
+                        User data invalid!</span>
                 <br>
                 <div>
                     <button class="btn btn-outline-primary" 
