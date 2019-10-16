@@ -63,5 +63,6 @@ export class TDFormComponent implements OnInit {
     this.user.gender = this.signUpForm.value.radio;
     this.user.qtn = this.signUpForm.value.secret1;
     this.user.answer = this.signUpForm.value.qtnAnswer;
+    this.signUpForm.reset();
   }
 }
