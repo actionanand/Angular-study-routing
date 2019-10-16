@@ -1,1 +1,85 @@
-<p>reactive-form works!</p>
+
+<div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"> 
+                <div id="user-data">
+                <div class="form-group">
+                    <label for="username1">Username</label>
+                    <input type="text" id="username1" 
+                    [formControlName]="'username'"
+                    class="form-control" placeholder="Enter your username" autofocus="on">
+                </div>
+                <div class="form-group">
+                    <label for="email1">Mail</label>
+                    <input type="email" id="email1" 
+                    formControlName="email"
+                    class="form-control" placeholder="Enter your email" autocomplete="on">
+
+                    <span class="help-block text-danger" 
+                    *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">
+                    Please enter a valid email!</span>&nbsp;
+                    
+                    <!-- <span class="help-block text-danger" *ngIf="!userData1.valid && userData1.touched">User data invalid!</span> -->
+                </div>
+                </div>
+                <!-- <div class="form-group">
+                <label for="secret1">Secret Questions</label>
+                <select id="secret1" class="form-control"
+                [ngModel]="defaultQn" name="secret1">
+                    <option value="pet">Your first Pet?</option>
+                    <option value="teacher">Your first teacher?</option>
+                    <option value="person">Your favourite person?</option>
+                    <option value="place">Your birth place?</option>
+                    <option value="book">Your favourite book?</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="qtnAnswer" rows="3" class="form-control" 
+                    [(ngModel)]="answer" required></textarea>
+                </div>
+                <p *ngIf="answer != ''">Your answer is: {{answer}}</p> -->
+                
+                <div class="radio" *ngFor="let gender of genders">
+                    <label>
+                        <input 
+                        type="radio"
+                        formControlName="genderOptn"
+                        [value]="gender">
+                        {{gender}}
+                    </label>
+                </div>
+                <!-- <div>
+                    <label>Choose your interests</label><br>
+                    <div class="form-check form-check-inline" 
+                    *ngFor="let interest of interests">
+                        <label>
+                            <input class="form-check-input" type="checkbox"
+                            ngModel name="checkbox"
+                            [value]="interest" required>
+                            {{interest}}
+                        </label>
+                    </div>
+                </div> -->
+                <div>
+                    <button class="btn btn-outline-primary" 
+                    type="submit">Submit</button>
+                </div>
+            </form>
+            </div>
+        </div>
+        <!-- <div *ngIf="isSubmited">
+            <hr>
+            <h3>Your information</h3>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>Username: {{user.name}}</p>
+                    <p>E-mail: {{user.email}}</p> 
+                    <p>Gender: {{user.gender}}</p> 
+                    <p>Your Question: {{user.qtn}}</p>
+                    <p>answer: {{user.answer}}</p>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    
