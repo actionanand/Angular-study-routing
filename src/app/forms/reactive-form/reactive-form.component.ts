@@ -13,6 +13,13 @@ export class ReactiveFormComponent implements OnInit {
   signupForm: FormGroup;
   spaceNeeded:boolean = false;
   forbiddenUserNames = ['Anand','AR','AnandRaja','superUser'];
+  isSubmited: boolean =false;
+  user = {
+    name: '',
+    email: '',
+    gender: '',
+    hobbies: [null]
+  };
 
   constructor() { }
 
@@ -30,14 +37,21 @@ export class ReactiveFormComponent implements OnInit {
     //   console.log(value);
     // });
 
-    this.signupForm.statusChanges.subscribe((status)=>{
-      console.log(status);
-    });
+    // this.signupForm.statusChanges.subscribe((status)=>{
+    //   console.log(status);
+    // });
 
   }
 
   onSubmit(){
-    console.log(this.signupForm);
+    this.isSubmited = true;
+    
+    this.user.name = this.signupForm.get('userData1.username').value;
+    this.user.email = this.signupForm.get('userData1.email').value;
+    this.user.gender = this.signupForm.get('genderOptn').value;
+    this.user.hobbies = this.signupForm.get('hobbies').value;
+
+    this.signupForm.reset();
   }
 
   onAddHobbies(){

@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <!-- <div *ngIf="isSubmited">
+        <div *ngIf="isSubmited">
             <hr>
             <h3>Your information</h3>
             <div class="row">
@@ -77,10 +77,12 @@
                     <p>Username: {{user.name}}</p>
                     <p>E-mail: {{user.email}}</p> 
                     <p>Gender: {{user.gender}}</p> 
-                    <p>Your Question: {{user.qtn}}</p>
-                    <p>answer: {{user.answer}}</p>
+                    <p>Your hobbies:
+                    <label *ngFor="let hobby of user.hobbies">
+                        {{hobby}} ,</label>
+                    </p>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
     
