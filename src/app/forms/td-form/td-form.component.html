@@ -37,7 +37,7 @@
                 <textarea name="qtnAnswer" rows="3" class="form-control" 
                 [(ngModel)]="answer" required></textarea>
             </div>
-            <p>Your answer is: {{answer}}</p>
+            <p *ngIf="answer != ''">Your answer is: {{answer}}</p>
             
             <div class="radio" *ngFor="let gender of genders">
                 <label>
@@ -66,6 +66,19 @@
                 type="submit" [disabled]="!f.valid">Submit</button>
             </div>
         </form>
+        </div>
+    </div>
+    <div *ngIf="isSubmited">
+        <hr>
+        <h3>Your information</h3>
+        <div class="row">
+            <div class="col-xs-12">
+                <p>Username: {{user.name}}</p>
+                <p>E-mail: {{user.email}}</p> 
+                <p>Gender: {{user.gender}}</p> 
+                <p>Your Question: {{user.qtn}}</p>
+                <p>answer: {{user.answer}}</p>
+            </div>
         </div>
     </div>
 </div>
