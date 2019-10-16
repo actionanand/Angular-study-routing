@@ -16,6 +16,10 @@ export class TDFormComponent implements OnInit {
   }
   defaultQn = 'person';
   answer = '';
+  genders = ['male','female','not interested'];
+  interests = ['cooking','singing','drawing','sleeping','chatting','surfing in net',
+'gaming','online games','coding','reading','writing','meditation','talking','others'];
+
   suggestUserName() {
     const suggestedName = 'Superuser';
   }

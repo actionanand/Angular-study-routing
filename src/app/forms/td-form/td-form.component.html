@@ -4,7 +4,7 @@
         <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
         <!-- <form (ngSubmit)="onSubmit(f)" #f="ngForm"> -->
         <form (ngSubmit)="onSubmit()" #f="ngForm">
-            <div id="user-data">
+            <div id="user-data" ngModelGroup="userData" #userData1="ngModelGroup">
             <div class="form-group">
                 <label for="username1">Username</label>
                 <input type="text" id="username1" 
@@ -16,8 +16,9 @@
                 <label for="email1">Mail</label>
                 <input type="email" id="email1" 
                 class="form-control" placeholder="Enter your email" autocomplete="on"
-                ngModel name="email1" required email #email=ngModel>
-                <span class="help-block text-danger" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+                ngModel name="email1" required email #email="ngModel">
+                <span class="help-block text-danger" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>&nbsp;
+                <span class="help-block text-danger" *ngIf="!userData1.valid && userData1.touched">User data invalid!</span>
             </div>
             </div>
             <!-- <div class="form-group form-check">
@@ -41,7 +42,33 @@
                 [(ngModel)]="answer" required></textarea>
             </div>
             <p>Your answer is: {{answer}}</p>
-            <button class="btn btn-outline-primary" type="submit" [disabled]="!f.valid">Submit</button>
+            
+            <div class="radio" *ngFor="let gender of genders">
+                <label>
+                    <input 
+                    type="radio"
+                    name="radio"
+                    ngModel
+                    [value]="gender">
+                    {{gender}}
+                </label>
+            </div>
+            <div>
+                <label>Choose your interests</label><br>
+                <div class="form-check form-check-inline" 
+                *ngFor="let interest of interests">
+                    <label>
+                        <input class="form-check-input" type="checkbox"
+                        ngModel name="checkbox"
+                        [value]="interest" required>
+                        {{interest}}
+                    </label>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-outline-primary" 
+                type="submit" [disabled]="!f.valid">Submit</button>
+            </div>
         </form>
         </div>
     </div>
