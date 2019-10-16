@@ -17,11 +17,29 @@ export class TDFormComponent implements OnInit {
   defaultQn = 'person';
   answer = '';
   genders = ['male','female','not interested'];
-  interests = ['cooking','singing','drawing','sleeping','chatting','surfing in net',
-'gaming','online games','coding','reading','writing','meditation','talking','others'];
+
+//   interests = ['cooking','singing','drawing','sleeping','chatting','surfing in net',
+// 'gaming','online games','coding','reading','writing','meditation','talking','others'];
 
   suggestUserName() {
-    const suggestedName = 'Superuser';
+    const suggestedName = 'New_user';
+
+    // this.signUpForm.setValue({
+    //   userData: {
+    //     username1: suggestedName,
+    //     email1: ''
+    //   },
+    //   secret1: 'person',
+    //   qtnAnswer: 'Anand',
+    //   radio: 'female'
+    // });
+
+    this.signUpForm.form.patchValue({
+      userData:{
+        username1: suggestedName
+      }
+    });
+    
   }
 
   // onSubmit(form: NgForm){
