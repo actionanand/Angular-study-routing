@@ -8,13 +8,24 @@
                         <label for="username1">Username</label>
                         <input type="text" id="username1" 
                         [formControlName]="'username'"
-                        class="form-control" placeholder="Enter your username" autofocus="on">
+                        class="form-control" placeholder="* Enter your username" autofocus="on">
+
+                        <span 
+                        *ngIf="!signupForm.get('userData1.username').valid && signupForm.get('userData1.username').touched">
+                            <span class="help-block text-danger"
+                            *ngIf="signupForm.get('userData1.username').errors['userNameIsForbidden']">
+                        User name is forbidden, choose something else</span>
+                            <span class="help-block text-danger"
+                            *ngIf="signupForm.get('userData1.username').errors['required']">
+                            Please enter a user name</span>
+                        </span>
+
                     </div>
                     <div class="form-group">
                         <label for="email1">Mail</label>
                         <input type="email" id="email1" 
                         formControlName="email"
-                        class="form-control" placeholder="Enter your email" autocomplete="on">
+                        class="form-control" placeholder="* Enter your email" autocomplete="on">
 
                         <span class="help-block text-danger" 
                         *ngIf="!signupForm.get('userData1.email').valid && signupForm.get('userData1.email').touched">
@@ -41,13 +52,13 @@
                     <div class="form-group" 
                     *ngFor="let hobbycontrol of signupForm.get('hobbies').controls; let i=index">
                         <input
-                        type="text" class="form-control"
+                        type="text" class="form-control" placeholder="* Type your hobby"
                         [formControlName]="i">
                     </div>
                 </div>
                 <span class="help-block text-danger" 
                         *ngIf="!signupForm.valid && signupForm.touched">
-                        User data invalid!</span>
+                        (* indicates required field)</span>
                 <br>
                 <div>
                     <button class="btn btn-outline-primary" 
