@@ -1,6 +1,6 @@
 # MyFirstApp
 
-This is second practice app of my angilar studies for angular services
+This is second practice app of my angilar studies for angular Routing, guard Observer and forms(Template-driven and reactive)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
 
