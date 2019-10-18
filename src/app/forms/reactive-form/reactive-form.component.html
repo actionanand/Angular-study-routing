@@ -54,6 +54,7 @@
                         <input
                         type="text" class="form-control" placeholder="* Type your hobby: {{i+1}}"
                         [formControlName]="i">
+                        <button class="btn btn-outline-danger" type="button" (click)="removeThisHobby(i)">Remove</button>
                     </div>
                 </div>
                 <span class="help-block text-danger" 

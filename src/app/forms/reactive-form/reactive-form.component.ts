@@ -60,6 +60,10 @@ export class ReactiveFormComponent implements OnInit {
     (<FormArray>this.signupForm.get('hobbies')).push(control);
   }
 
+  removeThisHobby(index: number){
+    (<FormArray>this.signupForm.get('hobbies')).removeAt(index);
+  }
+
   forbiddenNames(control: FormControl):{[s: string]: boolean} {
     if(this.forbiddenUserNames.indexOf(control.value) !== -1){
       return {'userNameIsForbidden': true};
