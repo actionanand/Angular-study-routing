@@ -8,7 +8,7 @@ tasks:
   - name: Angular 8
     before: nvm install v10.13.0
     init: npm install && npm run build
-    command: npm run start
+    command: npm run develop
 vscode:
   extensions:
     - angular.ng-template
