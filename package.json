@@ -7,7 +7,7 @@
     "develop": "ng serve --disable-host-check",
     "build": "ng build",
     "build:gh": "ng build --base-href /Angular-study-routing/",
-    "copy-error-page": "cp dist/Angular-study-routing/browser/index.html dist/Angular-study-routing/browser/404.html",
+    "copy-error-page": "cp dist/Angular-study-routing/index.html dist/Angular-study-routing/404.html",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
